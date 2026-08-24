@@ -23,8 +23,8 @@ ref table dim_tjenesteomrade
 ref table fact_indikator
 ref table bro_enhet_rls
 ref table _Mål
-ref table 'Valgt måltall'
 ref table 'Valgt nivå'
+ref table 'Valgt måltall'
 
 ref role Analytiker
 ref role HF-leder

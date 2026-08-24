@@ -1,40 +1,50 @@
 table 'Valgt måltall'
-	lineageTag: 52c88cec-38d6-49a5-b8dd-107052c47504
+	lineageTag: 7bc564c4-7c14-4862-9d96-9b403ddf0876
 
 	column 'Valgt måltall'
-		formatString: 0
-		lineageTag: 8001e62d-5acc-4446-864d-8914bac7ae67
-		summarizeBy: sum
-		isNameInferred
-		sourceColumn: [Valgt måltall]
+		lineageTag: 9742e73f-9fdd-4ff4-90c4-6349c4854f17
+		summarizeBy: none
+		sourceColumn: [Value1]
 		sortByColumn: 'Valgt måltall Order'
+
+		relatedColumnDetails
+			groupByColumn: 'Valgt måltall Fields'
 
 		annotation SummarizationSetBy = Automatic
 
 	column 'Valgt måltall Fields'
-		formatString: 0
-		lineageTag: 0a6e65bb-c8d9-4e79-835e-eba758fe0cd9
-		summarizeBy: sum
-		isNameInferred
-		sourceColumn: [Valgt måltall Fields]
+		isHidden
+		lineageTag: e0d4c8c8-9dbd-46d5-a246-7dc2fde5c335
+		summarizeBy: none
+		sourceColumn: [Value2]
 		sortByColumn: 'Valgt måltall Order'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
 
 		annotation SummarizationSetBy = Automatic
 
 	column 'Valgt måltall Order'
+		isHidden
 		formatString: 0
-		lineageTag: 3c744302-5905-4c4a-81b5-a2294cc67a52
+		lineageTag: 15016590-a108-44ca-8194-e0a196a5346e
 		summarizeBy: sum
-		isNameInferred
-		sourceColumn: [Valgt måltall Order]
+		sourceColumn: [Value3]
 
 		annotation SummarizationSetBy = Automatic
 
 	partition 'Valgt måltall' = calculated
 		mode: import
-		source = Row("Valgt måltall", BLANK(), "Valgt måltall Fields", BLANK(), "Valgt måltall Order", BLANK())
+		source =
+				{
+				    ("Verdi (riktig aggregert)", NAMEOF('_Mål'[Verdi (riktig aggregert)]), 0),
+				    ("Endring år over år", NAMEOF('_Mål'[Endring år over år]), 1),
+				    ("Endring år over år %", NAMEOF('_Mål'[Endring år over år %]), 2),
+				    ("Avvik mot mål", NAMEOF('_Mål'[Avvik mot mål]), 3)
+				}
 
-	annotation PBI_Id = 4e7034da621646e3a301b3f23efa70f9
-
-	annotation 436ba87b-9c83-4389-a31b-ebd06a36be98 = {"Expression":""}
+	annotation PBI_Id = 1305b989e19c480eb6126388fd45630a
 

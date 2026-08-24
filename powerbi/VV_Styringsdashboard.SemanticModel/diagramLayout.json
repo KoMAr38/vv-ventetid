@@ -101,19 +101,6 @@
         },
         {
           "location": {
-            "x": 1137.8365352035762,
-            "y": 425.7140654057132
-          },
-          "nodeIndex": "Valgt måltall",
-          "nodeLineageTag": "52c88cec-38d6-49a5-b8dd-107052c47504",
-          "size": {
-            "height": 152,
-            "width": 234
-          },
-          "zIndex": 1
-        },
-        {
-          "location": {
             "x": 1371.8365352035762,
             "y": 425.7140654057132
           },
@@ -124,6 +111,19 @@
             "width": 234
           },
           "zIndex": 2
+        },
+        {
+          "location": {
+            "x": 1605.8365352035762,
+            "y": 425.7140654057132
+          },
+          "nodeIndex": "Valgt måltall",
+          "nodeLineageTag": "7bc564c4-7c14-4862-9d96-9b403ddf0876",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
         }
       ],
       "name": "All tables",

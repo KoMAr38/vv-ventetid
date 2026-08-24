@@ -270,6 +270,13 @@
                 }
               }
             },
+            "width": {
+              "expr": {
+                "Literal": {
+                  "Value": "2D"
+                }
+              }
+            },
             "dataLabelShow": {
               "expr": {
                 "Literal": {
@@ -281,13 +288,6 @@
               "expr": {
                 "Literal": {
                   "Value": "'ValueAndName'"
-                }
-              }
-            },
-            "width": {
-              "expr": {
-                "Literal": {
-                  "Value": "2D"
                 }
               }
             },
@@ -372,7 +372,7 @@
         "type": "Categorical"
       },
       {
-        "name": "48213cc4321529d37212",
+        "name": "92a997cc4405293c79a6",
         "field": {
           "Measure": {
             "Expression": {

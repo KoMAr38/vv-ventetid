@@ -100,6 +100,56 @@
                           ]
                         ]
                       }
+                    },
+                    "Annotations": {
+                      "filterExpressionMetadata": {
+                        "expressions": [
+                          {
+                            "Column": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Entity": "Valgt måltall"
+                                }
+                              },
+                              "Property": "Valgt måltall"
+                            }
+                          }
+                        ],
+                        "decomposedIdentities": {
+                          "values": [
+                            [
+                              {
+                                "0": [
+                                  {
+                                    "Literal": {
+                                      "Value": "'''_Mål''[Verdi (riktig aggregert)]'"
+                                    }
+                                  }
+                                ]
+                              }
+                            ]
+                          ],
+                          "columns": [
+                            {
+                              "value": {
+                                "Column": {
+                                  "Expression": {
+                                    "SourceRef": {
+                                      "Entity": "Valgt måltall"
+                                    }
+                                  },
+                                  "Property": "Valgt måltall Fields"
+                                }
+                              }
+                            }
+                          ]
+                        },
+                        "valueMap": [
+                          {
+                            "0": "Verdi (riktig aggregert)"
+                          }
+                        ]
+                      }
                     }
                   }
                 ]
@@ -114,7 +164,7 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "1d1da7fee516e3aea13d",
+        "name": "249724237596d1771ac5",
         "field": {
           "Column": {
             "Expression": {
