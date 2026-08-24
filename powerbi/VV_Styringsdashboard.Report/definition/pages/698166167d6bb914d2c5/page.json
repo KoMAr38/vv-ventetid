@@ -2,7 +2,7 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
   "name": "698166167d6bb914d2c5",
   "displayName": "Status",
-  "displayOption": "FitToPage",
+  "displayOption": "ActualSize",
   "height": 1080,
   "width": 1920,
   "objects": {

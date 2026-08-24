@@ -11,7 +11,7 @@
       "type": "SharedResources"
     },
     "customTheme": {
-      "name": "Custom1304907180726843.json",
+      "name": "Custom22219572326421289.json",
       "reportVersionAtImport": {
         "visual": "2.12.0",
         "report": "3.4.0",
@@ -91,6 +91,19 @@
           }
         }
       }
+    ],
+    "outspacePane": [
+      {
+        "properties": {
+          "expanded": {
+            "expr": {
+              "Literal": {
+                "Value": "true"
+              }
+            }
+          }
+        }
+      }
     ]
   },
   "resourcePackages": [
@@ -110,8 +123,8 @@
       "type": "RegisteredResources",
       "items": [
         {
-          "name": "Custom1304907180726843.json",
-          "path": "Custom1304907180726843.json",
+          "name": "Custom22219572326421289.json",
+          "path": "Custom22219572326421289.json",
           "type": "CustomTheme"
         }
       ]
