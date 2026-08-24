@@ -1,0 +1,19 @@
+name: vv_ventetid
+version: "1.0.0"
+config-version: 2
+profile: vv_ventetid
+
+model-paths: ["models"]
+seed-paths: ["seeds"]
+target-path: "target"
+clean-targets: ["target", "dbt_packages"]
+
+models:
+  vv_ventetid:
+    staging:
+      +materialized: view
+      +schema: staging
+    intermediate:
+      +materialized: view
+    marts:
+      +materialized: table

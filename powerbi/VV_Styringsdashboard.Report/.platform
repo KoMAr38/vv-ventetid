@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "VV_Styringsdashboard"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "b53678e5-4842-41a6-97d7-f9ba6a563246"
+  }
+}

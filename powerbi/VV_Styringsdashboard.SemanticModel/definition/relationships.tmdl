@@ -1,0 +1,22 @@
+relationship 579d8be1-b407-1548-08b9-8d91eb8e5322
+	fromColumn: fact_indikator.enhet_id
+	toColumn: dim_enhet.enhet_id
+
+relationship efa6abc7-5b52-e720-4e69-5f92b1b72679
+	fromColumn: fact_indikator.periode_id
+	toColumn: dim_periode.periode_id
+
+relationship e3720de7-01aa-e026-4845-f2469b3f6cb4
+	fromColumn: fact_indikator.indikator_id
+	toColumn: dim_indikator.indikator_id
+
+relationship 7d852879-c839-2271-1118-227c11ecc838
+	fromColumn: fact_indikator.tjenesteomrade_id
+	toColumn: dim_tjenesteomrade.tjenesteomrade_id
+
+relationship 5fe48bbf-575d-a942-6280-b28b6937f3b9
+	crossFilteringBehavior: bothDirections
+	securityFilteringBehavior: bothDirections
+	fromColumn: bro_enhet_rls.enhet_id
+	toColumn: dim_enhet.enhet_id
+

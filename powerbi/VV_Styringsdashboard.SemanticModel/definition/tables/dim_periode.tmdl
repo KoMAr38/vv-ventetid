@@ -1,0 +1,139 @@
+/// Sann for NPR-perioder som er kumulative fra januar. «januar-august» er tertial 1 pluss tertial 2, ikke tertial 2 alene. Kumulative perioder kan ikke summeres med hverandre.
+table dim_periode
+	lineageTag: 7a303440-fa15-483d-ab60-7a55a8795174
+
+	column periode_id
+		dataType: string
+		isHidden
+		lineageTag: db187e4b-0c8f-4b7d-9f7a-a4007d10f5c4
+		summarizeBy: none
+		sourceColumn: periode_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column aar
+		dataType: int64
+		formatString: 0
+		lineageTag: 88e0c825-5e15-4866-b9b8-771f584a70da
+		summarizeBy: none
+		sourceColumn: aar
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column periode_nr
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 3940900b-0a93-4d33-abf5-a0612f931f3a
+		summarizeBy: none
+		sourceColumn: periode_nr
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Sann for NPR-perioder som er kumulative fra januar. «januar-august» er tertial 1 pluss tertial 2, ikke tertial 2 alene. Kumulative perioder kan ikke summeres med hverandre.
+	column er_kumulativ
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 53939a52-7de0-4bc1-a014-29bbe528b7ed
+		summarizeBy: none
+		sourceColumn: er_kumulativ
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column periode_navn
+		dataType: string
+		lineageTag: e5c3b113-047e-4f01-b23f-bcd169b07137
+		summarizeBy: none
+		sourceColumn: periode_navn
+		sortByColumn: periode_nr
+
+		changedProperty = IsHidden
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column periode_etikett
+		dataType: string
+		lineageTag: 707c1e68-7fb2-447b-9fb1-5536b9f17334
+		summarizeBy: none
+		sourceColumn: periode_etikett
+		sortByColumn: sortering
+
+		changedProperty = IsHidden
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column sortering
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 7f46ea50-2af3-4aef-b3de-5d59822dfbef
+		summarizeBy: none
+		sourceColumn: sortering
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Skiller NPRs kumulative perioder fra NKIs frittstående tertialer og årstall. Filtrer alltid på én type om gangen.
+	column periodetype
+		dataType: string
+		lineageTag: 30a4affe-8842-4d8a-93f5-01abc3dccc3d
+		summarizeBy: none
+		sourceColumn: periodetype
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column sortering_i_fjor
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 4d70b6f5-d7ef-4b11-8898-1c5fab7a92d4
+		summarizeBy: none
+		sourceColumn: sortering_i_fjor
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_periode = m
+		mode: import
+		source =
+				let
+				    Kilde = fnLesMart("dim_periode.csv"),
+				    Typer = Table.TransformColumnTypes(
+				        Kilde,
+				        {
+				            {"periode_id", type text},
+				            {"aar", Int64.Type},
+				            {"periode_nr", Int64.Type},
+				            {"er_kumulativ", type logical},
+				            {"periode_navn", type text},
+				            {"periode_etikett", type text},
+				            {"sortering", Int64.Type},
+				            {"periodetype", type text},
+				            {"sortering_i_fjor", Int64.Type}
+				        }
+				    )
+				in
+				    Typer
+
+	changedProperty = IsHidden
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

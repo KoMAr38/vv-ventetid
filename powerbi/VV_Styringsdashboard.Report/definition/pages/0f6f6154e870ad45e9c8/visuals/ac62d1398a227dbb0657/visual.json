@@ -1,0 +1,104 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "ac62d1398a227dbb0657",
+  "position": {
+    "x": 0,
+    "y": 292.99820466786355,
+    "z": 2,
+    "height": 196.48114901256733,
+    "width": 1906.2118491921005,
+    "tabOrder": 2
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "FORBEHOLD",
+                    "textStyle": {
+                      "fontSize": "11pt"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Registreringspraksis varierer mellom helseforetak. Forskjeller kan skyldes ulike rutiner ved mottak av henvisninger, ikke bare ulik tjeneste. Ikke-reelle fristbrudd oppstår når «ventetid slutt» ikke er registrert. Andel fristbrudd måler derfor både tjeneste og registreringskvalitet.",
+                    "textStyle": {
+                      "fontSize": "11pt"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Helse Midt-Norge 2022–2024 er beheftet med usikkerhet etter innføring av nytt pasientjournalsystem. Prikkede verdier er skjult av kilden der pasientgrunnlaget er under 5. En manglende verdi betyr skjult, ikke null.",
+                    "textStyle": {
+                      "fontSize": "11pt"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Helsedirektoratet og FHI publiserer ulike tall for fristbrudd. Kildene blandes aldri i samme figur. 2020 er ikke sammenlignbart. Plikten til å fastsette frist bortfalt i store deler av året.",
+                    "textStyle": {
+                      "fontSize": "11pt"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "NPR-perioder er kumulative fra januar. «januar–august» er tertial 1 pluss tertial 2.",
+                    "textStyle": {
+                      "fontSize": "11pt"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

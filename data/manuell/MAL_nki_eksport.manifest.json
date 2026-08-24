@@ -1,0 +1,26 @@
+{
+  "fil": "MAL_nki_eksport.csv",
+  "kilde": "Helsedirektoratet, Nasjonale kvalitetsindikatorer (manuell eksport)",
+  "lisens": "NLOD - Norsk lisens for offentlige data",
+  "antall_rader": 8,
+  "sha256": "1febd8e467f137824ab6a5e9cc4e075a3cca68cac60f14dadd8422c7c4565a24",
+  "kolonner": [
+    "Tidsperiode",
+    "Kvalitetsindikator",
+    "Måltall",
+    "Lokasjon",
+    "Verdi",
+    "Sektor",
+    "Nivå"
+  ],
+  "perioder": [
+    "2025T1",
+    "2025T2",
+    "2025T3"
+  ],
+  "advarsler": [
+    "1 rader har ingen verdi (trolig prikket av personvernhensyn)",
+    "2 verdier bruker komma som desimalskilletegn - konverteres i staging"
+  ],
+  "feil": []
+}

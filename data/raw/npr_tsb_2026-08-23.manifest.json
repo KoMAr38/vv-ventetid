@@ -1,0 +1,49 @@
+{
+  "kilde": "Folkehelseinstituttet, Norsk pasientregister",
+  "api": "https://statistikk-data.fhi.no/api/open/v1/npr/Table/520/data",
+  "tabell_id": 520,
+  "tabellnavn": "NPR TSB nøkkeltall",
+  "uttrekt_dato": "2026-08-23",
+  "uttrekt_tidspunkt": "2026-08-23T17:26:52+0000",
+  "antall_rader": 150,
+  "sha256": "bbde1e685d1a361f60c3d22bb5945f16cac7daef37cb7eb487ae0c45c6199c75",
+  "lisens": "NLOD - Norsk lisens for offentlige data",
+  "dimensjoner": {
+    "AAR": [
+      "2017",
+      "2018",
+      "2019",
+      "2020",
+      "2021",
+      "2022",
+      "2023",
+      "2024",
+      "2025",
+      "2026"
+    ],
+    "PERIODE": [
+      "1",
+      "2",
+      "3"
+    ],
+    "TJENESTEOMRADE": [
+      "1"
+    ],
+    "AKTOR": [
+      "3"
+    ],
+    "BOSTED": [
+      "9000",
+      "1000",
+      "2000",
+      "3000",
+      "4000"
+    ],
+    "MEASURE_TYPE": [
+      "ANT_PAS",
+      "ANT_PAS_DOGN",
+      "ANT_OPP_DOGN",
+      "ANT_KONT_POL"
+    ]
+  }
+}

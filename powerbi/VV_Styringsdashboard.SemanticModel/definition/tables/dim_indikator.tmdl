@@ -1,0 +1,140 @@
+table dim_indikator
+	lineageTag: 91165d76-19ef-4292-94f8-eeaf03e4df18
+
+	column indikator_id
+		dataType: string
+		isHidden
+		lineageTag: daaa4ff6-662f-4b80-bbf8-63e3cf12713d
+		summarizeBy: none
+		sourceColumn: indikator_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column indikator_kode
+		dataType: string
+		lineageTag: e9e834f6-da80-4f6b-a40c-f0cf10469947
+		summarizeBy: none
+		sourceColumn: indikator_kode
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column indikator_navn
+		dataType: string
+		lineageTag: 55154b11-9ceb-44cc-add3-25c5436895e6
+		summarizeBy: none
+		sourceColumn: indikator_navn
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column indikatorgruppe
+		dataType: string
+		lineageTag: a521431e-6cfe-4b85-83ba-510efd92547c
+		summarizeBy: none
+		sourceColumn: indikatorgruppe
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column datakilde
+		dataType: string
+		lineageTag: cb03c454-cb66-4ad5-b5c1-f5eae5420b64
+		summarizeBy: none
+		sourceColumn: datakilde
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Antall, Dager eller Prosent. Avgjør hvordan indikatoren skal aggregeres: antall summeres, dager og prosent snittes.
+	column enhet
+		dataType: string
+		lineageTag: 831d8f7b-45d1-45d4-8895-49ea903df396
+		summarizeBy: none
+		sourceColumn: enhet
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Om en høy eller lav verdi er ønskelig. Styrer fargelegging av avvik mot mål. En ventetid som går ned er grønt, en epikrisetid som går ned er ikke det.
+	column retning
+		dataType: string
+		lineageTag: c282b8d3-60ed-4e3b-beea-1fb5272a8717
+		summarizeBy: none
+		sourceColumn: retning
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Nasjonalt styringsmål. Tom der indikatoren ikke har et vedtatt mål — rapporten viser da ingen mållinje.
+	column malverdi
+		dataType: double
+		lineageTag: 286757b2-523c-4749-a830-61c237f5a324
+		summarizeBy: none
+		sourceColumn: malverdi
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	/// Sann for indikatorer med utgått definisjon. Måler ofte det samme som en gjeldende indikator, men annerledes. Hold dem utenfor tidsserier.
+	column er_utfaset
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 7b156ba1-cd7d-40c5-8f7f-9f72e1c35131
+		summarizeBy: none
+		sourceColumn: er_utfaset
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column kildetype
+		dataType: string
+		lineageTag: 344dc5d2-0b3a-4f5a-b288-fd1a3b123b50
+		summarizeBy: none
+		sourceColumn: kildetype
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_indikator = m
+		mode: import
+		source =
+				let
+				    Kilde = fnLesMart("dim_indikator.csv"),
+				    Typer = Table.TransformColumnTypes(
+				        Kilde,
+				        {
+				            {"indikator_id", type text},
+				            {"indikator_kode", type text},
+				            {"indikator_navn", type text},
+				            {"indikatorgruppe", type text},
+				            {"datakilde", type text},
+				            {"enhet", type text},
+				            {"retning", type text},
+				            {"malverdi", type number},
+				            {"er_utfaset", type logical},
+				            {"kildetype", type text}
+				        }
+				    )
+				in
+				    Typer
+
+	changedProperty = IsHidden
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

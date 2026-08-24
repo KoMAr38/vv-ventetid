@@ -1,0 +1,50 @@
+enhet_navn,enhet_niva,forelder_navn,kortnavn,referanseregion
+Landet,Nasjonalt,-,Landet,-
+Nasjonalt,Nasjonalt,-,Landet,-
+Region Sør-Øst,Region,Landet,HSØ,Landet
+Region Vest,Region,Landet,HV,Landet
+Region Midt-Norge,Region,Landet,HMN,Landet
+Region Nord,Region,Landet,HN,Landet
+Helse Sør-Øst RHF,Region,Landet,HSØ,Landet
+Helse Vest RHF,Region,Landet,HV,Landet
+Helse Midt-Norge RHF,Region,Landet,HMN,Landet
+Helse Nord RHF,Region,Landet,HN,Landet
+"Helse Sør-Øst, private",Region,Helse Sør-Øst RHF,HSØ privat,Landet
+"Helse Vest, private",Region,Helse Vest RHF,HV privat,Landet
+"Helse Midt-Norge, private",Region,Helse Midt-Norge RHF,HMN privat,Landet
+"Helse Nord, private",Region,Helse Nord RHF,HN privat,Landet
+Private,Region,Landet,Private,Landet
+Akershus universitetssykehus HF,Helseforetak,Helse Sør-Øst RHF,Ahus,Helse Sør-Øst RHF
+Oslo universitetssykehus HF,Helseforetak,Helse Sør-Øst RHF,OUS,Helse Sør-Øst RHF
+Sunnaas sykehus HF,Helseforetak,Helse Sør-Øst RHF,Sunnaas,Helse Sør-Øst RHF
+Sykehuset Innlandet HF,Helseforetak,Helse Sør-Øst RHF,SI,Helse Sør-Øst RHF
+Sykehuset i Vestfold HF,Helseforetak,Helse Sør-Øst RHF,SiV,Helse Sør-Øst RHF
+Sykehuset Telemark HF,Helseforetak,Helse Sør-Øst RHF,STHF,Helse Sør-Øst RHF
+Sykehuset Østfold HF,Helseforetak,Helse Sør-Øst RHF,SØ,Helse Sør-Øst RHF
+Sørlandet sykehus HF,Helseforetak,Helse Sør-Øst RHF,SSHF,Helse Sør-Øst RHF
+Vestre Viken HF,Helseforetak,Helse Sør-Øst RHF,VV,Helse Sør-Øst RHF
+Sykehusapotekene HF,Helseforetak,Helse Sør-Øst RHF,Sykehusapotekene,Helse Sør-Øst RHF
+Sykehuspartner HF,Helseforetak,Helse Sør-Øst RHF,Sykehuspartner,Helse Sør-Øst RHF
+Diakonhjemmet sykehus,Helseforetak,Helse Sør-Øst RHF,Diakonhjemmet,Helse Sør-Øst RHF
+Lovisenberg diakonale sykehus,Helseforetak,Helse Sør-Øst RHF,Lovisenberg,Helse Sør-Øst RHF
+Martina Hansens Hospital,Helseforetak,Helse Sør-Øst RHF,Martina Hansens,Helse Sør-Øst RHF
+Revmatismesykehuset,Helseforetak,Helse Sør-Øst RHF,Revmatismesykehuset,Helse Sør-Øst RHF
+Betanien Hospital,Helseforetak,Helse Sør-Øst RHF,Betanien,Helse Sør-Øst RHF
+Finnmarkssykehuset HF,Helseforetak,Helse Nord RHF,Finnmark,Helse Nord RHF
+Helgelandssykehuset HF,Helseforetak,Helse Nord RHF,Helgeland,Helse Nord RHF
+Nordlandssykehuset HF,Helseforetak,Helse Nord RHF,Nordland,Helse Nord RHF
+Universitetssykehuset Nord-Norge HF,Helseforetak,Helse Nord RHF,UNN,Helse Nord RHF
+Helse Møre og Romsdal HF,Helseforetak,Helse Midt-Norge RHF,Møre og Romsdal,Helse Midt-Norge RHF
+Helse Nord-Trøndelag HF,Helseforetak,Helse Midt-Norge RHF,Nord-Trøndelag,Helse Midt-Norge RHF
+St. Olavs Hospital HF,Helseforetak,Helse Midt-Norge RHF,St. Olavs,Helse Midt-Norge RHF
+Helse Bergen HF,Helseforetak,Helse Vest RHF,Bergen,Helse Vest RHF
+Helse Fonna HF,Helseforetak,Helse Vest RHF,Fonna,Helse Vest RHF
+Helse Førde HF,Helseforetak,Helse Vest RHF,Førde,Helse Vest RHF
+Helse Stavanger HF,Helseforetak,Helse Vest RHF,Stavanger,Helse Vest RHF
+Haraldsplass Diakonale Sykehus AS,Helseforetak,Helse Vest RHF,Haraldsplass,Helse Vest RHF
+NKS Olaviken alderspsykiatriske sykehus AS,Helseforetak,Helse Vest RHF,Olaviken,Helse Vest RHF
+Solli sykehus AS,Helseforetak,Helse Vest RHF,Solli,Helse Vest RHF
+Betanien Hospital Skien,Helseforetak,Helse Sør-Øst RHF,Betanien Skien,Helse Sør-Øst RHF
+Diakonhjemmet sykehus AS,Helseforetak,Helse Sør-Øst RHF,Diakonhjemmet,Helse Sør-Øst RHF
+Lovisenberg diakonale sykehus AS,Helseforetak,Helse Sør-Øst RHF,Lovisenberg,Helse Sør-Øst RHF
+"Revmatismesykehuset AS, Lillehammer",Helseforetak,Helse Sør-Øst RHF,Revmatismesykehuset,Helse Sør-Øst RHF

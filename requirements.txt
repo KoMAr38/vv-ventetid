@@ -1,0 +1,6 @@
+requests>=2.31
+pandas>=2.0
+duckdb>=1.0
+dbt-core>=1.8
+dbt-duckdb>=1.8
+openpyxl>=3.1

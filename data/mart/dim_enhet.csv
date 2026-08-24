@@ -1,0 +1,50 @@
+enhet_id,enhet_navn,kortnavn,enhet_niva,niva_nr,vis_i_rapport,forelder_navn,referanseregion,er_umappet,er_referanse,er_eget_foretak
+559df1cad0e4469acd9610c8488c2264,Lovisenberg diakonale sykehus AS,Lovisenberg,Helseforetak,3,1,Helse Sør-Øst RHF,Helse Sør-Øst RHF,0,0,0
+126f0b0d89ffd519859f32d7b2da3b21,Sykehuset i Vestfold HF,SiV,Helseforetak,3,1,Helse Sør-Øst RHF,Helse Sør-Øst RHF,0,0,0
+a6e06721c71a2f80ef5b4ad94b006311,NKS Olaviken alderspsykiatriske sykehus AS,Olaviken,Helseforetak,3,1,Helse Vest RHF,Helse Vest RHF,0,0,0
+bfc2cfc6dacb2a190aafe2fa76687c4d,Helse Midt-Norge Private,Helse Midt-Norge Private,Kommune eller annet,9,0,Ukjent,,1,0,0
+04bffaf4850cf3800c465d1776ff72fd,Region Midt-Norge,HMN,Region,2,1,Landet,Landet,0,0,0
+15272992f7b06e03bec1b0dc00860aca,Helse Nord RHF,HN,Region,2,1,Landet,Landet,0,0,0
+498b74eb58c19c3689e7c9d9ae69596c,Helse Sør-Øst RHF,HSØ,Region,2,1,Landet,Landet,0,0,0
+e1caa0f3c6e98e8fddedad38acf39520,"Helse Nord, private",HN privat,Region,2,1,Helse Nord RHF,Landet,0,0,0
+aca0125ccb2c996a0be5caf225062577,Sykehuset Telemark HF,STHF,Helseforetak,3,1,Helse Sør-Øst RHF,Helse Sør-Øst RHF,0,0,0
+349a1a459956195249691333a2a900db,NKS Jæren Distriktspsykiatriske senter AS,NKS Jæren Distriktspsykiatriske senter AS,Kommune eller annet,9,0,Ukjent,,1,0,0
+54804e945abfaec455b11d9ea01ea641,Voss DPS NKS Bjørkeli AS,Voss DPS NKS Bjørkeli AS,Kommune eller annet,9,0,Ukjent,,1,0,0
+2bfd9c2e05ceea5644b623422bb85050,Finnmarkssykehuset HF,Finnmark,Helseforetak,3,1,Helse Nord RHF,Helse Nord RHF,0,0,0
+78c9ec6d657f8789684a8fbc04ca6641,Sunnaas sykehus HF,Sunnaas,Helseforetak,3,1,Helse Sør-Øst RHF,Helse Sør-Øst RHF,0,0,0
+0a4d4d4cb7dbfcc8ca026f7c736d6890,Helse Vest Private,Helse Vest Private,Kommune eller annet,9,0,Ukjent,,1,0,0
+b7a4e881a7d1e0c23d5b7acaede49b80,Nordlandssykehuset HF,Nordland,Helseforetak,3,1,Helse Nord RHF,Helse Nord RHF,0,0,0
+09b0572cb34b4d7de468f14c67004de0,Sørlandet sykehus HF,SSHF,Helseforetak,3,1,Helse Sør-Øst RHF,Helse Sør-Øst RHF,0,0,0
+d8ae215b4f044493946556b3a41ddce5,Vestre Viken HF,VV,Helseforetak,3,1,Helse Sør-Øst RHF,Helse Sør-Øst RHF,0,0,1
+c481d39e5b8dc15c1ca1af1092fd2cf7,Haraldsplass Diakonale Sykehus AS,Haraldsplass,Helseforetak,3,1,Helse Vest RHF,Helse Vest RHF,0,0,0
+1c0ce4afb5cdbcb94dcad3ed84b09c01,"Helse Midt-Norge, private",HMN privat,Region,2,1,Helse Midt-Norge RHF,Landet,0,0,0
+8f9c76ffff62195228d06bd75314b34b,Sykehuset Østfold HF,SØ,Helseforetak,3,1,Helse Sør-Øst RHF,Helse Sør-Øst RHF,0,0,0
+49fca37732ebbdafe6d4ac06482b834f,Universitetssykehuset Nord-Norge HF,UNN,Helseforetak,3,1,Helse Nord RHF,Helse Nord RHF,0,0,0
+b010a0a4acedaa6680c8497ddeac3f0f,Betanien Hospital Skien,Betanien Skien,Helseforetak,3,1,Helse Sør-Øst RHF,Helse Sør-Øst RHF,0,0,0
+cf38438161d5715c6f6e1e1513fe1ca6,Alle private behandlingssteder,Alle private behandlingssteder,Kommune eller annet,9,0,Ukjent,,1,0,0
+1706cba8312dd56cea5861182dd42acc,Landet,Landet,Nasjonalt,1,1,Ukjent,,0,1,0
+0df7238c6787d8fbd58679a74c2cd010,Region Vest,HV,Region,2,1,Landet,Landet,0,0,0
+b5b3d253cce0b572cfc7a0796135598b,Helse Nord-Trøndelag HF,Nord-Trøndelag,Helseforetak,3,1,Helse Midt-Norge RHF,Helse Midt-Norge RHF,0,0,0
+157214e4c8c77a12d610a490f0b1dbdd,Sykehuset Innlandet HF,SI,Helseforetak,3,1,Helse Sør-Øst RHF,Helse Sør-Øst RHF,0,0,0
+299cfb73f34a9c39ca86329fe271ac18,Region Sør-Øst,HSØ,Region,2,1,Landet,Landet,0,0,0
+362e3f33207dcac7abef6dcf0b2685e8,Helse Nord Private,Helse Nord Private,Kommune eller annet,9,0,Ukjent,,1,0,0
+e2434fbb4a8f9007009978caf8baff85,Oslo universitetssykehus HF,OUS,Helseforetak,3,1,Helse Sør-Øst RHF,Helse Sør-Øst RHF,0,0,0
+47f9082fc380ca62d531096aa1d110f1,Private,Private,Region,2,1,Landet,Landet,0,0,0
+ec11d6da18f66c5274c0da7cdeef879a,Helgelandssykehuset HF,Helgeland,Helseforetak,3,1,Helse Nord RHF,Helse Nord RHF,0,0,0
+fdf80458db8a6cdba3adeccb3d960b63,Helse Førde HF,Førde,Helseforetak,3,1,Helse Vest RHF,Helse Vest RHF,0,0,0
+802ffa667c5bc1c5a6c585147c4858b5,Helse Stavanger HF,Stavanger,Helseforetak,3,1,Helse Vest RHF,Helse Vest RHF,0,0,0
+9c2c37a0154c6f359736823668280fc1,"Revmatismesykehuset AS, Lillehammer",Revmatismesykehuset,Helseforetak,3,1,Helse Sør-Øst RHF,Helse Sør-Øst RHF,0,0,0
+18f2307bf61115bb27168b2125b044db,Akershus universitetssykehus HF,Ahus,Helseforetak,3,1,Helse Sør-Øst RHF,Helse Sør-Øst RHF,0,0,0
+f8c1320876821282a7c6964ced36d15d,Helse Møre og Romsdal HF,Møre og Romsdal,Helseforetak,3,1,Helse Midt-Norge RHF,Helse Midt-Norge RHF,0,0,0
+15ce2e2864ace70b65381c11dd64a81a,Martina Hansens Hospital,Martina Hansens,Helseforetak,3,1,Helse Sør-Øst RHF,Helse Sør-Øst RHF,0,0,0
+50dd2fa9aaf9f35bd1f638242c5018c3,Solli sykehus AS,Solli,Helseforetak,3,1,Helse Vest RHF,Helse Vest RHF,0,0,0
+3412aac9823efaa7a9b4f1bb2fb3a6f7,Helse Midt-Norge RHF,HMN,Region,2,1,Landet,Landet,0,0,0
+ac5deaff7ea7ca14ba55630ef532314b,Diakonhjemmet sykehus AS,Diakonhjemmet,Helseforetak,3,1,Helse Sør-Øst RHF,Helse Sør-Øst RHF,0,0,0
+b9797f0ace518f99ff46da6736982457,Helse Fonna HF,Fonna,Helseforetak,3,1,Helse Vest RHF,Helse Vest RHF,0,0,0
+78cde04afdaefe6bee79fcd6d62a9ebf,St. Olavs Hospital HF,St. Olavs,Helseforetak,3,1,Helse Midt-Norge RHF,Helse Midt-Norge RHF,0,0,0
+e0e91091a913c8c0ca9fb54de1618f9c,Helse Vest RHF,HV,Region,2,1,Landet,Landet,0,0,0
+5c71c1edd4639ff4e42531f6e4791266,"Helse Vest, private",HV privat,Region,2,1,Helse Vest RHF,Landet,0,0,0
+2b4aac6c4a02d7bd030e23b1fd2b7092,Helse Bergen HF,Bergen,Helseforetak,3,1,Helse Vest RHF,Helse Vest RHF,0,0,0
+2a33a34696748a7437eeff0cd46569d0,Region Nord,HN,Region,2,1,Landet,Landet,0,0,0
+830f3e205c91cacf82a9ce37e8011ec2,"Helse Sør-Øst, private",HSØ privat,Region,2,1,Helse Sør-Øst RHF,Landet,0,0,0
+a9157cee12badde1855fbdcac97f36ec,Helse Sør-Øst Private,Helse Sør-Øst Private,Kommune eller annet,9,0,Ukjent,,1,0,0

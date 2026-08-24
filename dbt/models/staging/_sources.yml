@@ -1,0 +1,13 @@
+version: 2
+
+sources:
+  - name: raa
+    description: >
+      Rafiler slik de kom fra kilden. Rores aldri av dbt, bare leses.
+      NPR-filene lastes ned av src/hent_npr.py. NKI-fila eksporteres manuelt
+      fra Helsedirektoratets eksportvisning og valideres av src/valider_nki.py.
+    meta:
+      lisens: NLOD
+      kilder:
+        - Folkehelseinstituttet (Norsk pasientregister)
+        - Helsedirektoratet (Nasjonale kvalitetsindikatorer)

@@ -1,0 +1,49 @@
+{
+  "kilde": "Folkehelseinstituttet, Norsk pasientregister",
+  "api": "https://statistikk-data.fhi.no/api/open/v1/npr/Table/464/data",
+  "tabell_id": 464,
+  "tabellnavn": "NPR PHBU nøkkeltall",
+  "uttrekt_dato": "2026-08-23",
+  "uttrekt_tidspunkt": "2026-08-23T17:26:50+0000",
+  "antall_rader": 150,
+  "sha256": "51c0626ecf2e348c4aaf79820c408a1da1f777e1800e93170106e0fe83e7f13f",
+  "lisens": "NLOD - Norsk lisens for offentlige data",
+  "dimensjoner": {
+    "AAR": [
+      "2017",
+      "2018",
+      "2019",
+      "2020",
+      "2021",
+      "2022",
+      "2023",
+      "2024",
+      "2025",
+      "2026"
+    ],
+    "PERIODE": [
+      "1",
+      "2",
+      "3"
+    ],
+    "TJENESTEOMRADE": [
+      "3"
+    ],
+    "AKTOR": [
+      "3"
+    ],
+    "BOSTED": [
+      "9000",
+      "1000",
+      "2000",
+      "3000",
+      "4000"
+    ],
+    "MEASURE_TYPE": [
+      "ANT_PAS",
+      "ANT_PAS_DOGN",
+      "ANT_OPP_DOGN",
+      "ANT_KONT_POL"
+    ]
+  }
+}

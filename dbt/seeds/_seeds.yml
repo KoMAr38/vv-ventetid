@@ -1,0 +1,23 @@
+version: 2
+
+seeds:
+  - name: enhet_mapping
+    description: >
+      Oppslagstabell for enhetshierarkiet. Vedlikeholdes for hand.
+
+      Den finnes fordi kildene ikke er enige med seg selv om hva en enhet heter.
+      NPR skriver "Region Sør-Øst" om pasientens bostedsregion, NKI skriver
+      "Helse Sør-Øst RHF" om foretaksgruppen, og et helseforetaksnavn kan endre
+      seg ved omorganisering uten at historikken i kilden skrives om.
+
+      Helse Sør-Øst RHF bestar av morselskapet og elleve datterselskap. De
+      elleve er lagt inn her. Foretak som dukker opp i en eksport uten a sta i
+      denne lista blir fanget av testen "ingen_umappede_enheter" og skal
+      legges inn her, ikke handteres med et unntak i en SQL-sporring.
+    columns:
+      - name: enhet_navn
+        tests: [unique, not_null]
+      - name: enhet_niva
+        tests:
+          - accepted_values:
+              values: ['Nasjonalt','Region','Helseforetak']

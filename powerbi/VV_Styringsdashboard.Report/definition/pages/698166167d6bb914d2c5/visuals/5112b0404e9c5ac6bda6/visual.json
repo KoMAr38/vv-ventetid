@@ -1,0 +1,77 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "5112b0404e9c5ac6bda6",
+  "position": {
+    "x": 688.36866359447,
+    "y": 0,
+    "z": 3,
+    "height": 212,
+    "width": 356,
+    "tabOrder": 3
+  },
+  "visual": {
+    "visualType": "slicer",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_periode"
+                    }
+                  },
+                  "Property": "aar"
+                }
+              },
+              "queryRef": "dim_periode.aar",
+              "nativeQueryRef": "aar",
+              "active": true
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "data": [
+        {
+          "properties": {
+            "mode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Dropdown'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {}
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "233a1120274b6a7c550f",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_periode"
+              }
+            },
+            "Property": "aar"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

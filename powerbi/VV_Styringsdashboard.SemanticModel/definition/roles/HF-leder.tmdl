@@ -1,0 +1,7 @@
+role HF-leder
+	modelPermission: read
+
+	tablePermission bro_enhet_rls = [brukerprinsipal] = USERPRINCIPALNAME ()
+
+	annotation PBI_Id = 74183d46ea2d46d9af7fc540f7be37b9
+

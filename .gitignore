@@ -1,0 +1,28 @@
+# DuckDB-fila bygges av dbt og skal ikke i Git
+data/*.duckdb
+data/*.duckdb.wal
+
+# dbt
+dbt/target/
+dbt/dbt_packages/
+dbt/logs/
+dbt/.user.yml
+
+# Power BI
+# .pbip-mappa SKAL med i Git - det er hele poenget.
+# Men cache og lokale innstillinger skal ikke.
+**/.pbi/localSettings.json
+**/.pbi/cache.abf
+*.pbix
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# OS
+.DS_Store
+Thumbs.db
+*.python_kommando
+.python_kommando

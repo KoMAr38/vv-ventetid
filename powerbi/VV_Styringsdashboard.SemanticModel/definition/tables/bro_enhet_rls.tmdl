@@ -1,0 +1,71 @@
+table bro_enhet_rls
+	isHidden
+	lineageTag: 19a0d765-9ac8-45f6-beac-0824146c0b56
+
+	column rolle
+		dataType: string
+		isHidden
+		lineageTag: 87014958-03a3-4ef1-b675-fa03e4e75a4b
+		summarizeBy: none
+		sourceColumn: rolle
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column brukerprinsipal
+		dataType: string
+		isHidden
+		lineageTag: f1d21d6d-f360-4395-849d-ca2cb1e9fac4
+		summarizeBy: none
+		sourceColumn: brukerprinsipal
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column enhet_id
+		dataType: string
+		isHidden
+		lineageTag: fec5cbd2-5bf2-4698-aae6-36df6e7f7bba
+		summarizeBy: none
+		sourceColumn: enhet_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column tilgangstype
+		dataType: string
+		isHidden
+		lineageTag: 84669621-96bd-4967-9766-5f585f2650ce
+		summarizeBy: none
+		sourceColumn: tilgangstype
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition bro_enhet_rls = m
+		mode: import
+		source =
+				let
+				    Kilde = fnLesMart("bro_enhet_rls.csv"),
+				    Typer = Table.TransformColumnTypes(
+				        Kilde,
+				        {
+				            {"rolle", type text},
+				            {"brukerprinsipal", type text},
+				            {"enhet_id", type text},
+				            {"tilgangstype", type text}
+				        }
+				    )
+				in
+				    Typer
+
+	changedProperty = IsHidden
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,4 @@
+Tidsperiode,Kvalitetsindikator,Måltall,Lokasjon,Verdi,Sektor,Nivå,QualityIndicatorID,LocationId
+2025,MAL - IKKE EKTE DATA,MAL - strukturmal,MAL - Helseforetak A,999,Spesialisthelsetjenesten,Kommune/Helseforetak/Legevakt/Helsefellesskap,999,999
+2025T1,MAL - IKKE EKTE DATA,MAL - strukturmal med tertial,MAL - Helseforetak A,"99,9%",Spesialisthelsetjenesten,Fylke/Regionalt helseforetak,999,999
+2025,MAL - IKKE EKTE DATA,MAL - prikket verdi,MAL - Helseforetak B,,Spesialisthelsetjenesten,Kommune/Helseforetak/Legevakt/Helsefellesskap,999,999

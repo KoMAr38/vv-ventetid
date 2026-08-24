@@ -1,0 +1,50 @@
+table 'Valgt nivå'
+	lineageTag: 4f25fe16-5a6b-4be8-b85a-7b28b94d123d
+
+	column 'Valgt nivå'
+		lineageTag: 3e485475-77e6-44a2-9897-796afbef7435
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Valgt nivå Order'
+
+		relatedColumnDetails
+			groupByColumn: 'Valgt nivå Fields'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Valgt nivå Fields'
+		isHidden
+		lineageTag: 4bae50e2-b223-40b1-b8d6-c7c47bb5794e
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'Valgt nivå Order'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Valgt nivå Order'
+		isHidden
+		formatString: 0
+		lineageTag: 1440aa06-532c-4168-acdd-4b1f11b161ce
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Valgt nivå' = calculated
+		mode: import
+		source =
+				{
+				    ("enhet_navn", NAMEOF('dim_enhet'[enhet_navn]), 0),
+				    ("enhet_niva", NAMEOF('dim_enhet'[enhet_niva]), 1),
+				    ("tjenesteomrade_navn", NAMEOF('dim_tjenesteomrade'[tjenesteomrade_navn]), 2),
+				    ("aar", NAMEOF('dim_periode'[aar]), 3)
+				}
+
+	annotation PBI_Id = 2748e4f2cafd4437b5091b092432a27f
+

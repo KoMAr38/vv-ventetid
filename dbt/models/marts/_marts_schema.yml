@@ -1,0 +1,102 @@
+version: 2
+
+models:
+  - name: dim_enhet
+    description: Enhetshierarki - Nasjonalt, Region, Helseforetak.
+    columns:
+      - name: enhet_id
+        tests: [unique, not_null]
+      - name: enhet_navn
+        tests: [unique, not_null]
+      - name: enhet_niva
+        tests:
+          - accepted_values:
+              values: ['Nasjonalt','Region','Helseforetak','Legevakt','Kommune eller annet']
+      - name: er_umappet
+        description: >
+          1 nar enheten ikke finnes i seed-tabellen enhet_mapping.
+          Testen under er den viktigste i prosjektet: den varsler nar kilden
+          har innfort et enhetsnavn som modellen ikke kjenner, i stedet for at
+          raden stille havner under "Ukjent" i rapporten.
+        tests:
+          - accepted_values:
+              values: [0]
+              config:
+                severity: warn
+
+  - name: dim_periode
+    columns:
+      - name: periode_id
+        tests: [unique, not_null]
+      - name: sortering
+        tests: [not_null]
+      - name: periodetype
+        tests:
+          - accepted_values:
+              values: ['Kumulativ','Tertial']
+
+  - name: dim_indikator
+    columns:
+      - name: indikator_id
+        tests: [unique, not_null]
+      - name: retning
+        tests:
+          - accepted_values:
+              values: ['Lavere er bedre','Høyere er bedre','Ingen retning']
+
+  - name: dim_tjenesteomrade
+    columns:
+      - name: tjenesteomrade_id
+        tests: [unique, not_null]
+
+  - name: fact_indikator
+    description: Faktatabell. Ett tall per enhet, periode, tjenesteomrade og indikator.
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - enhet_id
+            - periode_id
+            - indikator_id
+            - tjenesteomrade_id
+            - aktor_navn
+    columns:
+      - name: enhet_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_enhet')
+              field: enhet_id
+      - name: periode_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_periode')
+              field: periode_id
+      - name: indikator_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_indikator')
+              field: indikator_id
+      - name: tjenesteomrade_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_tjenesteomrade')
+              field: tjenesteomrade_id
+      - name: verdi
+        description: Kan vaere null nar raden er prikket av personvernhensyn.
+
+  - name: bro_enhet_rls
+    description: Brotabell for radnivasikkerhet. Skiller detaljtilgang fra referansetilgang.
+    columns:
+      - name: enhet_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_enhet')
+              field: enhet_id
+      - name: tilgangstype
+        tests:
+          - accepted_values:
+              values: ['Detalj','Referanse']

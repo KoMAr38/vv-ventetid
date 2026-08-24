@@ -1,0 +1,44 @@
+version: 2
+
+models:
+  - name: stg_npr_nokkeltall
+    description: >
+      Nokkeltall for aktivitet i spesialisthelsetjenesten fra Norsk pasientregister,
+      snudd fra bred til lang form. Ett tall per rad.
+    columns:
+      - name: aar
+        description: Statistikkar, fra 2017.
+        tests: [not_null]
+      - name: enhet_navn
+        description: Landet eller bostedsregion. NPR-nokkeltall har ikke helseforetaksniva.
+        tests: [not_null]
+      - name: maltall_kode
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['ANT_PAS','ANT_PAS_DOGN','ANT_OPP_DOGN','ANT_DOGNOPP','ANT_KONT_POL','ANT_DAGBEH']
+      - name: verdi
+        description: Antall. Skal aldri vaere negativ.
+        tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              min_value: 0
+              inclusive: true
+      - name: periode_navn
+        tests:
+          - accepted_values:
+              values: ['januar-april','januar-august','hele året']
+
+  - name: stg_nki_indikator
+    description: >
+      Nasjonale kvalitetsindikatorer pa helseforetaksniva, fra manuell eksport.
+      Prikkede verdier er beholdt som rader med verdi = null og er_prikket = true.
+    columns:
+      - name: aar
+        tests: [not_null]
+      - name: enhet_navn
+        tests: [not_null]
+      - name: indikator_navn
+        tests: [not_null]
+      - name: er_prikket
+        tests: [not_null]

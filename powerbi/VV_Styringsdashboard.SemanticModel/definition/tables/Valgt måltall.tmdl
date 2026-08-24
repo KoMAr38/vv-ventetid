@@ -1,0 +1,51 @@
+table 'Valgt måltall'
+	lineageTag: 52c88cec-38d6-49a5-b8dd-107052c47504
+
+	column 'Valgt måltall'
+		lineageTag: fe6f72af-26cf-46db-8def-9b2273500157
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Valgt måltall Order'
+
+		relatedColumnDetails
+			groupByColumn: 'Valgt måltall Fields'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Valgt måltall Fields'
+		isHidden
+		lineageTag: b3a73a6e-399c-4744-a773-500e81b890b9
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'Valgt måltall Order'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Valgt måltall Order'
+		isHidden
+		formatString: 0
+		lineageTag: 9d15f97a-6d82-4b7c-8976-aa23158618dc
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Valgt måltall' = calculated
+		mode: import
+		source =
+				{
+				    ("Verdi (riktig aggregert)", NAMEOF('_Mål'[Verdi (riktig aggregert)]), 0),
+				    ("Endring år over år", NAMEOF('_Mål'[Endring år over år]), 1),
+				    ("Endring år over år %", NAMEOF('_Mål'[Endring år over år %]), 2),
+				    ("Avvik mot mål", NAMEOF('_Mål'[Avvik mot mål]), 3),
+				    ("Avvik fra nasjonalt", NAMEOF('_Mål'[Avvik fra nasjonalt]), 4)
+				}
+
+	annotation PBI_Id = 4e7034da621646e3a301b3f23efa70f9
+

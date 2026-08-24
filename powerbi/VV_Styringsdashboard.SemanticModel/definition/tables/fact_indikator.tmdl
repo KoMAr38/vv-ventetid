@@ -1,0 +1,141 @@
+table fact_indikator
+	lineageTag: e2d3abcb-9197-4c09-9485-7f906174a567
+
+	column enhet_id
+		dataType: string
+		isHidden
+		lineageTag: d142515e-6b6d-49e6-8b4f-3488e42f752b
+		summarizeBy: none
+		sourceColumn: enhet_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column periode_id
+		dataType: string
+		isHidden
+		lineageTag: fcde9242-7b39-45f9-833f-adf8720e0293
+		summarizeBy: none
+		sourceColumn: periode_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column indikator_id
+		dataType: string
+		isHidden
+		lineageTag: d68ab8f0-7dc3-453c-8600-f94eddc451de
+		summarizeBy: none
+		sourceColumn: indikator_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column tjenesteomrade_id
+		dataType: string
+		isHidden
+		lineageTag: 9f57abd5-2037-4bc3-bbd7-2af48339546f
+		summarizeBy: none
+		sourceColumn: tjenesteomrade_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column aktor_navn
+		dataType: string
+		lineageTag: 17b9fe08-e7c5-4c35-9c7d-c9a1262905d2
+		summarizeBy: none
+		sourceColumn: aktor_navn
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column verdi
+		dataType: double
+		lineageTag: c2b2a345-4b9f-47c2-b5b0-f412338cc796
+		summarizeBy: none
+		sourceColumn: verdi
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	/// Sann når kilden har skjult tallet fordi pasientgrunnlaget er under 5. En verdi som mangler betyr skjult, ikke null.
+	column er_prikket
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: c7d5b7b8-b4a9-4ee5-96fd-38149d294892
+		summarizeBy: none
+		sourceColumn: er_prikket
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column flagg
+		dataType: string
+		lineageTag: 0de8bc66-b56c-46eb-83e2-3f16ae85cd86
+		summarizeBy: none
+		sourceColumn: flagg
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column uttrekksdato
+		dataType: string
+		lineageTag: 5566c01a-bf55-4739-9b53-64083eb17847
+		summarizeBy: none
+		sourceColumn: uttrekksdato
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	/// NPR eller NKI. De to etatene beregner fristbrudd ulikt — Helsedirektoratet teller bare pasienter med gyldig frist. Skal ikke blandes i samme figur.
+	column datakilde
+		dataType: string
+		lineageTag: 8356503b-96c0-4e79-9383-7ddd5d76ee41
+		summarizeBy: none
+		sourceColumn: datakilde
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fact_indikator = m
+		mode: import
+		source =
+				let
+				    Kilde = fnLesMart("fact_indikator.csv"),
+				    Typer = Table.TransformColumnTypes(
+				        Kilde,
+				        {
+				            {"enhet_id", type text},
+				            {"periode_id", type text},
+				            {"indikator_id", type text},
+				            {"tjenesteomrade_id", type text},
+				            {"aktor_navn", type text},
+				            {"verdi", type number},
+				            {"er_prikket", type logical},
+				            {"flagg", type text},
+				            {"uttrekksdato", type text},
+				            {"datakilde", type text}
+				        }
+				    )
+				in
+				    Typer
+
+	changedProperty = IsHidden
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

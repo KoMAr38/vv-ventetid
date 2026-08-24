@@ -1,0 +1,53 @@
+{
+  "kilde": "Folkehelseinstituttet, Norsk pasientregister",
+  "api": "https://statistikk-data.fhi.no/api/open/v1/npr/Table/517/data",
+  "tabell_id": 517,
+  "tabellnavn": "NPR SOM nøkkeltall",
+  "uttrekt_dato": "2026-08-23",
+  "uttrekt_tidspunkt": "2026-08-23T17:26:48+0000",
+  "antall_rader": 450,
+  "sha256": "6b0c50c22eb34e634e433870ac9fe04e62b9c36e18292640aa27fa5d87e00c16",
+  "lisens": "NLOD - Norsk lisens for offentlige data",
+  "dimensjoner": {
+    "AAR": [
+      "2017",
+      "2018",
+      "2019",
+      "2020",
+      "2021",
+      "2022",
+      "2023",
+      "2024",
+      "2025",
+      "2026"
+    ],
+    "PERIODE": [
+      "1",
+      "2",
+      "3"
+    ],
+    "TJENESTEOMRADE": [
+      "4"
+    ],
+    "AKTOR": [
+      "1",
+      "2",
+      "3"
+    ],
+    "BOSTED": [
+      "9000",
+      "1000",
+      "2000",
+      "3000",
+      "4000"
+    ],
+    "MEASURE_TYPE": [
+      "ANT_PAS",
+      "ANT_PAS_DOGN",
+      "ANT_OPP_DOGN",
+      "ANT_DOGNOPP",
+      "ANT_KONT_POL",
+      "ANT_DAGBEH"
+    ]
+  }
+}

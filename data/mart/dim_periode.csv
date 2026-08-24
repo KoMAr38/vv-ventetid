@@ -1,0 +1,34 @@
+periode_id,aar,periode_nr,er_kumulativ,periode_navn,periode_etikett,sortering,periodetype,sortering_i_fjor
+7613a8c49db39328276f4d54d10a4084,2024,3,false,T3,2024 T3,20243,Tertial,20233
+5d92dc564127afb24f38d00ad5ca2f19,2019,3,true,hele året,2019 hele året,20193,Kumulativ,20183
+5531125df9ed31ae197af16aa4e58e74,2020,1,true,januar-april,2020 jan-apr,20201,Kumulativ,20191
+aca08b449db38e7684175c3d1c9082f0,2020,3,true,hele året,2020 hele året,20203,Kumulativ,20193
+a224922d10d403ac140afffff2a5f7d1,2021,1,true,januar-april,2021 jan-apr,20211,Kumulativ,20201
+dec35a23a196fc2696aa4e9f0a2afea9,2021,2,true,januar-august,2021 jan-aug,20212,Kumulativ,20202
+d19ebab940499815e7b5486e66788be8,2023,3,true,hele året,2023 hele året,20233,Kumulativ,20223
+2636b9a62b3466c0d21c1246c49d0e10,2018,2,true,januar-august,2018 jan-aug,20182,Kumulativ,20172
+547bdb256ccdb84615847cf224ab2c99,2022,3,true,hele året,2022 hele året,20223,Kumulativ,20213
+9198aaa9f088ba4758985525e83895be,2024,1,true,januar-april,2024 jan-apr,20241,Kumulativ,20231
+96691bb2b21b961b53940cbd2fad35ff,2025,3,false,T3,2025 T3,20253,Tertial,20243
+9e4a4646621e0ed872111a174c8d0177,2017,3,true,hele året,2017 hele året,20173,Kumulativ,20163
+668d1cae8b10c117436cab2d658f0cc7,2020,2,true,januar-august,2020 jan-aug,20202,Kumulativ,20192
+093e455575977e1a30c603087fac1c4d,2023,3,false,T3,2023 T3,20233,Tertial,20223
+5f0b505f9088ff7a1cb58750065b41ac,2025,3,true,hele året,2025 hele året,20253,Kumulativ,20243
+25c572d6586b37235be177d87ebcb1a1,2021,3,false,T3,2021 T3,20213,Tertial,20203
+80059d07bf980235cb08c7c35289ae39,2023,1,true,januar-april,2023 jan-apr,20231,Kumulativ,20221
+dc376ba7184df61e1e48a60d8713c108,2018,3,true,hele året,2018 hele året,20183,Kumulativ,20173
+5ced205bb514355ef0ab30385e759ab3,2022,1,true,januar-april,2022 jan-apr,20221,Kumulativ,20211
+15cbe5aa7a388408076f2cfd0f6d84dd,2024,3,true,hele året,2024 hele året,20243,Kumulativ,20233
+d7a9d18e696ef2501b1fb12b0b5e5ad4,2025,1,true,januar-april,2025 jan-apr,20251,Kumulativ,20241
+90c6f8a117eb00281f92edf149ded799,2025,2,true,januar-august,2025 jan-aug,20252,Kumulativ,20242
+ec284741515d64a7421840a8d07e621a,2017,2,true,januar-august,2017 jan-aug,20172,Kumulativ,20162
+6ac295276dfd67e5ed241235e6b110e6,2021,3,true,hele året,2021 hele året,20213,Kumulativ,20203
+0fdcc74fdfd239ad025cc65ce37327e3,2018,1,true,januar-april,2018 jan-apr,20181,Kumulativ,20171
+09a9c20db7a0cc9f9648fde657fb1c06,2019,2,true,januar-august,2019 jan-aug,20192,Kumulativ,20182
+4fcd981015f5b83db12879283947ca22,2022,2,true,januar-august,2022 jan-aug,20222,Kumulativ,20212
+7ed5ff019119787a80ec6c1a00079658,2024,2,true,januar-august,2024 jan-aug,20242,Kumulativ,20232
+7c5108ab64be1406646bc159c1e8c707,2022,3,false,T3,2022 T3,20223,Tertial,20213
+3208d78ae5f5cbce1640683bd2ded5be,2023,2,true,januar-august,2023 jan-aug,20232,Kumulativ,20222
+d13702f68656c3ec2df4e28022c68bb4,2017,1,true,januar-april,2017 jan-apr,20171,Kumulativ,20161
+4b3a51349bc48d3fb945d3aa9c13b420,2026,1,true,januar-april,2026 jan-apr,20261,Kumulativ,20251
+d1624066d74cd47cd3f7e9b519dccd3d,2019,1,true,januar-april,2019 jan-apr,20191,Kumulativ,20181

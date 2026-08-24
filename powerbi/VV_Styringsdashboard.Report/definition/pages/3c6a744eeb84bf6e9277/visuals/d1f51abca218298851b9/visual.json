@@ -1,0 +1,72 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "d1f51abca218298851b9",
+  "position": {
+    "x": 1619.1705069124425,
+    "y": 83.1705069124424,
+    "z": 2,
+    "height": 300,
+    "width": 300,
+    "tabOrder": 2
+  },
+  "visual": {
+    "visualType": "slicer",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Valgt måltall"
+                    }
+                  },
+                  "Property": "Valgt måltall"
+                }
+              },
+              "queryRef": "Valgt måltall.Valgt måltall",
+              "nativeQueryRef": "Valgt måltall",
+              "active": true
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "data": [
+        {
+          "properties": {
+            "mode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Basic'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "e8610879f66790db163f",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Valgt måltall"
+              }
+            },
+            "Property": "Valgt måltall"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
+}

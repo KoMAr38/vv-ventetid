@@ -1,0 +1,30 @@
+{
+  "fil": "nki_eksport_hf.csv",
+  "kilde": "Helsedirektoratet, Nasjonale kvalitetsindikatorer (manuell eksport)",
+  "lisens": "NLOD - Norsk lisens for offentlige data",
+  "antall_rader": 8625,
+  "sha256": "5b3de93dc8dee921301913a69bf5706022c2617764eb975be971cf59fab2114b",
+  "kolonner": [
+    "Tidsperiode",
+    "Kvalitetsindikator",
+    "Måltall",
+    "Lokasjon",
+    "Verdi",
+    "Sektor",
+    "Nivå",
+    "QualityIndicatorID",
+    "LocationId"
+  ],
+  "perioder": [
+    "2021",
+    "2022",
+    "2023",
+    "2024",
+    "2025"
+  ],
+  "advarsler": [
+    "Ukjente kolonner (tas ikke inn i modellen): ['QualityIndicatorID', 'LocationId']",
+    "2881 verdier bruker komma som desimalskilletegn - konverteres i staging"
+  ],
+  "feil": []
+}

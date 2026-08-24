@@ -1,0 +1,9 @@
+vv_ventetid:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: ../data/vv_ventetid.duckdb
+      threads: 4
+      extensions:
+        - httpfs

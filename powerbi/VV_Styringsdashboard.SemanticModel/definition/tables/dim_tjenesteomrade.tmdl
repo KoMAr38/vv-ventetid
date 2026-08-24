@@ -1,0 +1,56 @@
+table dim_tjenesteomrade
+	lineageTag: 64cc99b2-cc49-40e0-b7f6-5048c2f4e2a2
+
+	column tjenesteomrade_id
+		dataType: string
+		isHidden
+		lineageTag: deff1e39-3ca9-455f-ac8f-2f02fa40af81
+		summarizeBy: none
+		sourceColumn: tjenesteomrade_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column tjenesteomrade_navn
+		dataType: string
+		lineageTag: 578e1fa8-32a9-407a-9f6f-91e46930d9a0
+		summarizeBy: none
+		sourceColumn: tjenesteomrade_navn
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column tjenesteomrade_kode
+		dataType: string
+		lineageTag: 29f6d71d-a244-4c5d-b8e1-121a38d9fcf2
+		summarizeBy: none
+		sourceColumn: tjenesteomrade_kode
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_tjenesteomrade = m
+		mode: import
+		source =
+				let
+				    Kilde = fnLesMart("dim_tjenesteomrade.csv"),
+				    Typer = Table.TransformColumnTypes(
+				        Kilde,
+				        {
+				            {"tjenesteomrade_id", type text},
+				            {"tjenesteomrade_navn", type text},
+				            {"tjenesteomrade_kode", type text}
+				        }
+				    )
+				in
+				    Typer
+
+	changedProperty = IsHidden
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

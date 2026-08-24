@@ -1,0 +1,157 @@
+table dim_enhet
+	lineageTag: 04cbd707-28cf-4033-b6f4-086c898a7411
+
+	column enhet_id
+		dataType: string
+		isHidden
+		lineageTag: 043145c2-ebe6-419a-9606-e17b5d8f2459
+		summarizeBy: none
+		sourceColumn: enhet_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column enhet_navn
+		dataType: string
+		lineageTag: e40310b3-7358-4206-b951-54bd2a54bc3c
+		summarizeBy: none
+		sourceColumn: enhet_navn
+		sortByColumn: niva_nr
+
+		changedProperty = IsHidden
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column kortnavn
+		dataType: string
+		lineageTag: a13f2b7b-8aea-43c1-ac2c-c0adcffc2343
+		summarizeBy: none
+		sourceColumn: kortnavn
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column enhet_niva
+		dataType: string
+		lineageTag: fb81d1fa-b57b-4d3d-9b74-5dd95cb8235f
+		summarizeBy: none
+		sourceColumn: enhet_niva
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column niva_nr
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 202f1bbd-0c31-43fd-88dd-af1b73615596
+		summarizeBy: sum
+		sourceColumn: niva_nr
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	/// 1 for nasjonalt nivå, regioner og helseforetak. 0 for kommuner og legevakter som følger med i NKI-eksporten. Filtrer på 1 i rapporten.
+	column vis_i_rapport
+		dataType: int64
+		formatString: 0
+		lineageTag: 468b1b6e-d88a-4ab0-9c74-6ca49db97a11
+		summarizeBy: sum
+		sourceColumn: vis_i_rapport
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column forelder_navn
+		dataType: string
+		lineageTag: a0cb00e5-f65d-4e79-9315-bc5f146b6055
+		summarizeBy: none
+		sourceColumn: forelder_navn
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column referanseregion
+		dataType: string
+		lineageTag: f782edbe-5f7f-4a86-a089-88e67a94b73b
+		summarizeBy: none
+		sourceColumn: referanseregion
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column er_umappet
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 2ca0c1de-b7dc-4553-ac4e-115e9d892945
+		summarizeBy: sum
+		sourceColumn: er_umappet
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column er_referanse
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 9dcb68d7-c731-432a-b235-d2881198e5ba
+		summarizeBy: sum
+		sourceColumn: er_referanse
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column er_eget_foretak
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 8a588786-8ae5-454b-ac17-ed6200eda137
+		summarizeBy: sum
+		sourceColumn: er_eget_foretak
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_enhet = m
+		mode: import
+		source =
+				let
+				    Kilde = fnLesMart("dim_enhet.csv"),
+				    Typer = Table.TransformColumnTypes(
+				        Kilde,
+				        {
+				            {"enhet_id", type text},
+				            {"enhet_navn", type text},
+				            {"kortnavn", type text},
+				            {"enhet_niva", type text},
+				            {"niva_nr", Int64.Type},
+				            {"forelder_navn", type text},
+				            {"referanseregion", type text},
+				            {"er_umappet", Int64.Type},
+				            {"vis_i_rapport", Int64.Type},
+				            {"er_referanse", Int64.Type},
+				            {"er_eget_foretak", Int64.Type}
+				        }
+				    )
+				in
+				    Typer
+
+	changedProperty = IsHidden
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

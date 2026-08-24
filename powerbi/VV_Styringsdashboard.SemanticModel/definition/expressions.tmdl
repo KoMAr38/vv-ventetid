@@ -1,0 +1,26 @@
+expression MartMappe = "C:\prosjekt\vv-ventetid\data\mart\" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: 6ab8b45f-1967-4e83-981d-f72568b88cc5
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Text
+
+expression fnLesMart =
+		let
+		    fnLesMart = (Filnavn as text) as table =>
+		        let
+		            Kilde = Csv.Document(
+		                File.Contents(MartMappe & Filnavn),
+		                [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]
+		            ),
+		            Overskrifter = Table.PromoteHeaders(Kilde, [PromoteAllScalars = true])
+		        in
+		            Overskrifter
+		in
+		    fnLesMart
+	lineageTag: c3c9ec05-d4b8-45bb-ba57-4f50ed2fa613
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Function
+

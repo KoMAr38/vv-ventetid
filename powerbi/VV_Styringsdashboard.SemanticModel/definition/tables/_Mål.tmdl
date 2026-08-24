@@ -1,0 +1,206 @@
+table _Mål
+	lineageTag: 1b5a0fb4-28b0-4127-98d9-7ae9ec148781
+
+	/// Summen av valgt indikator. Merk at sum bare gir mening for antall. For gjennomsnittsindikatorer som ventetid skal Verdi (riktig aggregert) brukes.
+	measure Verdi = SUM ( fact_indikator[verdi] )
+		formatString: #,0
+		lineageTag: 161852ee-88de-4312-b714-6a4da706b750
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	/// Hvor mange rader som ligger bak tallet. Brukes til å avsløre at et snitt er regnet på ett enkelt datapunkt.
+	measure 'Antall målinger' = COUNTROWS ( fact_indikator )
+		lineageTag: 793c7f37-cf88-48d3-99d7-a57d13b0ac23
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	/// Antall rader der kilden har skjult tallet av personvernhensyn. En verdi som mangler er ikke det samme som null, og dette målet gjør forskjellen synlig i rapporten.
+	measure 'Antall prikkede' =
+			
+			CALCULATE (
+			    COUNTROWS ( fact_indikator ),
+			    fact_indikator[er_prikket] = TRUE ()
+			)
+		lineageTag: f2d6ab6d-6cf8-4bcd-ac5a-fd4e3160a629
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	/// Andelen av grunnlaget som er skjult. Over ca. 20 % bør en figur merkes med forbehold framfor å presenteres som en trend.
+	measure 'Andel prikket' = DIVIDE ( [Antall prikkede], [Antall målinger] )
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 29467b21-601f-4db0-8c97-54b016d93abb
+
+	/// Aggregerer etter indikatorens enhet. Antall summeres, dager og prosent snittes. Returnerer tom verdi når flere indikatortyper er valgt samtidig, i stedet for å legge sammen tall som ikke skal legges sammen.
+	measure 'Verdi (riktig aggregert)' =
+			
+			VAR _Enhet =
+			    SELECTEDVALUE ( dim_indikator[enhet], "Blandet" )
+			RETURN
+			    SWITCH (
+			        _Enhet,
+			        "Antall",  SUM ( fact_indikator[verdi] ),
+			        "Dager",   AVERAGE ( fact_indikator[verdi] ),
+			        "Prosent", AVERAGE ( fact_indikator[verdi] ),
+			        BLANK ()
+			    )
+		formatString: #,0
+		lineageTag: c5bcc086-c2cc-47c3-85fc-ac0ff3cf0abc
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	/// Samme tertial året før. Bygger på en eksplisitt periodenøkkel fordi spesialisthelsetjenesten rapporterer i tertialer og ikke i datoer, slik at innebygd tidsintelligens ikke kan brukes.
+	measure 'Verdi i fjor' =
+			
+			VAR _Sortering =
+			    SELECTEDVALUE ( dim_periode[sortering_i_fjor] )
+			RETURN
+			    CALCULATE (
+			        [Verdi (riktig aggregert)],
+			        REMOVEFILTERS ( dim_periode ),
+			        dim_periode[sortering] = _Sortering
+			    )
+		formatString: #,0
+		lineageTag: bed0d47f-7e27-4a99-a844-b86cddf4e27a
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	/// Absolutt endring fra samme tertial i fjor. Tom når det ikke finnes et sammenlignbart fjorår.
+	measure 'Endring år over år' =
+			
+			VAR _Naa = [Verdi (riktig aggregert)]
+			VAR _Fjor = [Verdi i fjor]
+			RETURN
+			    IF ( NOT ISBLANK ( _Fjor ), _Naa - _Fjor )
+		formatString: 0.0
+		lineageTag: 3bcdfff2-47a6-4d58-b903-c397840441cf
+
+	/// Relativ endring fra samme tertial i fjor.
+	measure 'Endring år over år %' =
+			
+			DIVIDE ( [Endring år over år], [Verdi i fjor] )
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 624e1af6-8387-49b5-8236-50a0553653d8
+
+	/// Nasjonalt styringsmål for indikatoren, der et slikt er vedtatt. Tom når indikatoren ikke har et vedtatt mål — rapporten skal da ikke tegne mållinje.
+	measure Målverdi = SELECTEDVALUE ( dim_indikator[malverdi] )
+		lineageTag: 231095f3-8a85-46b1-92f8-c2a587b9e336
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	/// Forskjellen mellom faktisk verdi og styringsmålet. Tom der målet ikke er satt.
+	measure 'Avvik mot mål' =
+			
+			VAR _Maalverdi = [Målverdi]
+			RETURN
+			    IF ( NOT ISBLANK ( _Maalverdi ), [Verdi (riktig aggregert)] - _Maalverdi )
+		formatString: 0.0
+		lineageTag: 4070f0d5-f0ea-468b-a648-9261533cb242
+
+	/// Vurderer avviket mot indikatorens egen retning. En ventetid som går ned og et antall pasienter som går ned betyr ikke det samme, og retningen er derfor lagt i modellen framfor å skrives på nytt for hver figur.
+	measure 'Status mot mål' =
+			
+			VAR _Maal = [Avvik mot mål]
+			VAR _Retning = SELECTEDVALUE ( dim_indikator[retning] )
+			RETURN
+			    SWITCH (
+			        TRUE (),
+			        ISBLANK ( _Maal ), "Ikke vurdert",
+			        _Retning = "Lavere er bedre" && _Maal <= 0, "Innenfor mål",
+			        _Retning = "Høyere er bedre" && _Maal >= 0, "Innenfor mål",
+			        _Retning = "Ingen retning", "Ikke vurdert",
+			        "Utenfor mål"
+			    )
+		lineageTag: a41b1c29-ae72-4e38-beef-f3f5db89acc6
+
+	/// Betinget formatering. Brukes under Format > Farge > fx > Feltverdi. Grå brukes bevisst for «ikke vurdert» slik at fravær av vurdering ikke leses som et dårlig resultat.
+	measure 'Farge status' =
+			
+			SWITCH (
+			    [Status mot mål],
+			    "Innenfor mål", "#1B7F5F",
+			    "Utenfor mål",  "#B03A2E",
+			    "#7B7B7B"
+			)
+		lineageTag: 33477c89-9fff-4870-b688-4c157b1db7d7
+
+	/// Nasjonalt nivå uavhengig av hvilken enhet som er valgt. Dette er sammenligningsgrunnlaget som gjør et enkelt foretakstall tolkbart — 62 dagers ventetid sier ingenting alene.
+	measure 'Verdi nasjonalt' =
+			
+			CALCULATE (
+			    [Verdi (riktig aggregert)],
+			    REMOVEFILTERS ( dim_enhet ),
+			    dim_enhet[enhet_navn] = "Landet"
+			)
+		formatString: #,0
+		lineageTag: e0324885-5019-4ee0-99d0-7c337ed47988
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	/// Forskjellen mellom valgt enhet og nasjonalt nivå.
+	measure 'Avvik fra nasjonalt' =
+			
+			VAR _Nasjonalt = [Verdi nasjonalt]
+			RETURN
+			    IF ( NOT ISBLANK ( _Nasjonalt ), [Verdi (riktig aggregert)] - _Nasjonalt )
+		formatString: 0.0
+		lineageTag: 379b9b63-9d04-4295-b022-fff163775eff
+
+	/// Dato for siste uttrekk fra kilden. Står synlig i rapporten fordi en leder som ser et tall skal vite hvor gammelt det er.
+	measure 'Sist oppdatert' = "Uttrekk: " & MAX ( fact_indikator[uttrekksdato] )
+		lineageTag: c393feda-c6e6-4cd1-87a0-ca963a9db505
+
+	/// NLOD krever at kilde oppgis. Målet plasseres i en kortvisning nederst på hver side.
+	measure Kildehenvisning = "Kilde: Norsk pasientregister (Folkehelseinstituttet) og Nasjonale kvalitetsindikatorer (Helsedirektoratet). Gjengitt under NLOD."
+		lineageTag: f8e793bb-785f-40fc-a061-5ebc9302c846
+
+	/// Viser forbehold som gjelder akkurat det utvalget brukeren har gjort. Et forbehold som står i et vedlegg blir ikke lest; et forbehold som dukker opp når det gjelder, blir det.
+	measure 'Forbehold aktiv periode' =
+			
+			VAR _Type = SELECTEDVALUE ( dim_periode[periodetype], "Blandet" )
+			VAR _Prikket = [Andel prikket]
+			VAR _Kumulativ =
+			    IF (
+			        _Type = "Kumulativ",
+			        "Perioden er kumulativ fra januar og kan ikke summeres med andre perioder. ",
+			        ""
+			    )
+			VAR _Skjult =
+			    IF (
+			        _Prikket > 0.2,
+			        "Over 20 % av grunnlaget er skjult av personvernhensyn. ",
+			        ""
+			    )
+			VAR _Blandet =
+			    IF (
+			        _Type = "Blandet",
+			        "Utvalget blander kumulative perioder og tertialer. ",
+			        ""
+			    )
+			VAR _Tekst = _Kumulativ & _Skjult & _Blandet
+			RETURN
+			    IF ( _Tekst <> "", "Forbehold: " & TRIM ( _Tekst ) )
+		lineageTag: 562af784-e0e4-4e18-9ab4-868bf1013840
+
+	column Kolonne
+		dataType: string
+		isHidden
+		lineageTag: f039c8d7-3a5c-4a39-9d7f-be21824479a6
+		summarizeBy: none
+		sourceColumn: Kolonne
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition _Mål = m
+		mode: import
+		source =
+				let
+				    Kilde = Table.FromRows({}, type table [Kolonne = text])
+				in
+				    Kilde
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

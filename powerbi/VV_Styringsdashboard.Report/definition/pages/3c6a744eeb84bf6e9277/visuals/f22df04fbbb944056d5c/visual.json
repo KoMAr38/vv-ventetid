@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "f22df04fbbb944056d5c",
+  "position": {
+    "x": 52.978116079923886,
+    "y": 999.27687916270224,
+    "z": 5,
+    "height": 80.380589914367278,
+    "width": 1532.7117031398668,
+    "tabOrder": 5
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Tall for Helse Midt-Norge 2022–2024 er beheftet med usikkerhet på grunn av innføring av nytt journalsystem. Se Metode.",
+                    "textStyle": {
+                      "fontSize": "9pt",
+                      "color": "#808080"
+                    }
+                  }
+                ],
+                "horizontalTextAlignment": "center"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
