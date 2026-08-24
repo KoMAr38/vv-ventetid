@@ -1,0 +1,37 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "9649055f3451603baae9",
+  "position": {
+    "x": 79.907514450867055,
+    "y": 1025.4797687861271,
+    "z": 3,
+    "height": 55.491329479768787,
+    "width": 881.20231213872842,
+    "tabOrder": 3
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Forskjeller mellom foretak kan skyldes ulik registreringspraksis, ikke bare ulik tjeneste. Se Metode.",
+                    "textStyle": {
+                      "fontSize": "9pt",
+                      "color": "#808080"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
