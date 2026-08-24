@@ -100,56 +100,6 @@
                           ]
                         ]
                       }
-                    },
-                    "Annotations": {
-                      "filterExpressionMetadata": {
-                        "expressions": [
-                          {
-                            "Column": {
-                              "Expression": {
-                                "SourceRef": {
-                                  "Entity": "Valgt måltall"
-                                }
-                              },
-                              "Property": "Valgt måltall"
-                            }
-                          }
-                        ],
-                        "decomposedIdentities": {
-                          "values": [
-                            [
-                              {
-                                "0": [
-                                  {
-                                    "Literal": {
-                                      "Value": "'''_Mål''[Verdi (riktig aggregert)]'"
-                                    }
-                                  }
-                                ]
-                              }
-                            ]
-                          ],
-                          "columns": [
-                            {
-                              "value": {
-                                "Column": {
-                                  "Expression": {
-                                    "SourceRef": {
-                                      "Entity": "Valgt måltall"
-                                    }
-                                  },
-                                  "Property": "Valgt måltall Fields"
-                                }
-                              }
-                            }
-                          ]
-                        },
-                        "valueMap": [
-                          {
-                            "0": "Verdi (riktig aggregert)"
-                          }
-                        ]
-                      }
                     }
                   }
                 ]
