@@ -1,10 +1,14 @@
 # Styringsdashboard for spesialisthelsetjenesten
 
-Porteføljeprosjekt. Bygger et komplett datagrunnlag fra åpne kilder til ferdig
+**Modellen gjenskaper Folkehelseinstituttets publiserte tall til siste siffer.**
+
+Porteføljeprosjekt som bygger et komplett datagrunnlag fra åpne kilder til ferdig
 Power BI-rapport: uttrekk, transformasjon, datamodell, mål og rapport.
 
 Dette er **ikke** en produksjonsløsning, og det inneholder **ingen** pasientdata.
 Alt er offentlig publisert statistikk på aggregert nivå.
+
+![Status mot styringsmål](docs/bilder/status.png)
 
 ---
 
@@ -19,6 +23,8 @@ ledermøte:
 
 Rapporten er bygget rundt de spørsmålene, ikke rundt hvilke tall som tilfeldigvis
 finnes i kilden.
+
+![Sammenligning med landet](docs/bilder/sammenligning.png)
 
 ---
 
@@ -124,6 +130,8 @@ Power BIs innebygde tidsintelligens forutsetter en sammenhengende datokolonne og
 kan derfor ikke brukes. `dim_periode` har en eksplisitt sorteringsnøkkel og en
 forhåndsberegnet `sortering_i_fjor` som målene slår opp mot.
 
+![Utvikling over tertialer](docs/bilder/utvikling.png)
+
 **Kumulative perioder er merket.** NPR publiserer «januar–april» og «januar–august»
 kumulativt, ikke som frittstående tertialer. Summerer man dem sammen med «hele året»,
 telles samme pasient tre ganger. Kolonnen `er_kumulativ` gjør skillet eksplisitt,
@@ -168,6 +176,8 @@ bare har udokumenterte svakheter.
   valget er tatt bevisst og ikke som standard.
 
 Full liste med forbehold fra kildene selv: `dokumentasjon/forbehold.md`.
+
+![Metode og forbehold](docs/bilder/metode.png)
 
 ---
 
