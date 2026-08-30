@@ -5,7 +5,11 @@ prosjektet. Den er bevisst en del av repoet, ikke en privat huskeliste:
 et repo uten en slik oversikt ser enten ferdig ut når det ikke er det,
 eller uferdig uten forklaring.
 
-Oppdatert: 24. august 2026
+Punkter som er løst blir stående med gjennomstreket overskrift og en forklaring
+av hva som var galt. Det er der lesingen ligger — et løst punkt som slettes
+etterlater seg ingenting.
+
+Oppdatert: 30. august 2026
 
 ---
 
@@ -45,17 +49,19 @@ borte. Det var hele poenget med å beholde prikkede rader i modellen.
 
 ## Modell
 
-### Sorteringskolonner i `dim_periode`
+### ~~Sorteringskolonner i `dim_periode`~~ — løst
 
-`dim_periode` mangler kolonnene `sortering` og `sortering_i_fjor`.
+`sortering` og `sortering_i_fjor` ligger nå i
+`dbt/models/marts/dim_periode.sql`, beregnet som `aar * 10 + periode_nr` og
+`(aar - 1) * 10 + periode_nr`. Begge er med i `data/mart/dim_periode.csv`.
 
-Sortering på x-aksen fungerer i dag fordi datagrunnlaget bare inneholder
-tertial 3, og `2021 T3 < 2022 T3 < 2023 T3` er alfabetisk og kronologisk
-samtidig. Dersom kilden senere publiserer T1 og T2, vil `2023 T1` sorteres
-foran `2022 T3`, og kurvene blir feil uten at noe feiler.
+Uten dem fungerte sorteringen på x-aksen bare fordi datagrunnlaget den gangen
+inneholdt tertial 3 alene, og `2021 T3 < 2022 T3` er alfabetisk og kronologisk
+samtidig. Med T1 og T2 i settet ville `2023 T1` sortert foran `2022 T3`, og
+kurvene blitt feil uten at noe feilet.
 
-**Tiltak:** legg til begge kolonner i `dbt/models/marts/dim_periode.sql`,
-sett `Sort by column` på `periode_etikett` i modellen.
+Gjenstår: kontroller at `Sort by column` faktisk er satt på
+`periode_etikett` i den semantiske modellen.
 
 ### Advarsel i dbt-bygget
 
@@ -114,9 +120,9 @@ Undertittel Utvikling =
 
 ## Til slutt
 
-- [ ] Tema lagret som `powerbi/tema.json`
-- [ ] Skjermbilde per side i `docs/bilder/`, lenket inn i README
+- [x] Tema lagret som `powerbi/tema.json`
+- [x] Skjermbilde per side i `docs/bilder/`, lenket inn i README
 - [ ] Navigasjonsikon til «Metode» fra de tre andre sidene
 - [ ] Les `dokumentasjon/forbehold.md` mot ferdig rapport og sjekk at alle ni
       forbehold er dekket et sted
-- [ ] Siste `git status` skal være ren før repoet gjøres offentlig
+- [x] Siste `git status` skal være ren før repoet gjøres offentlig
